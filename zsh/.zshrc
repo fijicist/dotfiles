@@ -193,3 +193,6 @@ alias root="source ~/packages/root_install/bin/thisroot.sh && root"
 
 alias python="python3.10" # python3 will run python 3.12
 
+# ---- Alias for using git with dotfiles ----
+
+alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
