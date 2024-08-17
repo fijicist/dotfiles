@@ -40,7 +40,7 @@ set number
 set cursorline
 color desert
 " FIX: The cursorline underline is still showing(UGLY) 
-hi CursorLine term=bold cterm=bold 
+hi CursorLine term=NONE cterm=NONE 
 
 " Sets mouse to be used in all modes
 set mouse=a
@@ -313,6 +313,7 @@ nnoremap <leader>sv <C-w>v
 nnoremap <leader>sh <C-w>s
 nnoremap <leader>se <C-w>=
 nnoremap <leader>sx :close<CR>
+nnoremap <leader>sm <C-w>| | <C-w>_
 
 nnoremap <leader>to :tabnew<CR>
 nnoremap <leader>tx :tabclose<CR>
