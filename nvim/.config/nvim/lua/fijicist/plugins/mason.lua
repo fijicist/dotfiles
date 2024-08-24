@@ -27,29 +27,14 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "arduino_language_server",
-        "asm_lsp",
         "bashls",
         "clangd",
-        "csharp_ls",
         "cmake",
         "dockerls",
-        "fortls",
-        "grammarly",
-        "julials",
         "ltex",
         "markdown_oxide",
         "powershell_es",
-        "yamlls",
-        "tsserver",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "svelte",
         "lua_ls",
-        "graphql",
-        "emmet_ls",
-        "prismals",
         "pyright",
       },
     })
@@ -61,7 +46,6 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "pylint", -- python linter
-        "eslint_d", -- js linter
       },
     })
   end,
