@@ -313,7 +313,7 @@ nnoremap <leader>sv <C-w>v
 nnoremap <leader>sh <C-w>s
 nnoremap <leader>se <C-w>=
 nnoremap <leader>sx :close<CR>
-nnoremap <leader>sm <C-w>| | <C-w>_
+" nnoremap <leader>sm <C-w> || <C-w>_
 
 nnoremap <leader>to :tabnew<CR>
 nnoremap <leader>tx :tabclose<CR>

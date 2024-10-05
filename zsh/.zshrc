@@ -212,3 +212,15 @@ setopt hist_verify
 
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+# ---- Random ASCII art to display on terminal startup ----
+
+python-colorscript 
+
+# ---- PATH for CUDA ----
+
+export PATH=/usr/local/cuda-12.1/bin${PATH:+:${PATH}}
+
+# ---- Alias for yazi ----
+
+alias yazi="~/packages/yazi/target/release/yazi"
