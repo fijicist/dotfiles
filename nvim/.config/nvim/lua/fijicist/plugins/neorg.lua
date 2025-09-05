@@ -1,6 +1,6 @@
 return {
   "nvim-neorg/neorg",
-  --  dependencies = { "luarocks.nvim", "nvim-treesitter" },
+  -- dependencies = { "luarocks" , "nvim-treesitter" },
   lazy = false,
   version = "*",
   config = function()

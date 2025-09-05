@@ -21,6 +21,25 @@ return {
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
+        preview = {
+          -- Try to use treesitter but handle errors gracefully
+          highlight = function(filepath, bufnr, opts)
+            -- Safely try to highlight with treesitter
+            local ok, ts_highlight = pcall(require, "nvim-treesitter.highlight")
+            if ok then
+              local ok2, _ = pcall(ts_highlight.attach, bufnr, "highlight")
+              if not ok2 then
+                -- Fallback to basic vim highlighting
+                vim.bo[bufnr].syntax = vim.filetype.match({ buf = bufnr }) or ""
+              end
+            else
+              -- Fallback to basic vim highlighting
+              vim.bo[bufnr].syntax = vim.filetype.match({ buf = bufnr }) or ""
+            end
+          end,
+          timeout = 250,
+        },
+
       },
     })
 

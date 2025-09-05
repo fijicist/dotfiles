@@ -27,11 +27,9 @@ return {
     mason_lspconfig.setup({
       -- list of servers for mason to install
       ensure_installed = {
-        "bashls",
         "clangd",
         "cmake",
         "dockerls",
-        "ltex",
         "markdown_oxide",
         "powershell_es",
         "lua_ls",

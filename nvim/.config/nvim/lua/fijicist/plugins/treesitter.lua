@@ -2,12 +2,23 @@ return {
   "nvim-treesitter/nvim-treesitter",
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
+  branch = 'master',
+  lazy = false,
   dependencies = {
     "windwp/nvim-ts-autotag",
   },
   config = function()
+    -- Specify a custom installation directory for treesitter parsers
+    require'nvim-treesitter'.setup {
+      -- Directory to install parsers and queries to
+      install_dir = vim.fn.stdpath('data') .. '/site'
+    }
+
+    -- Ensure treesitter install directory is in runtimepath
+    vim.opt.runtimepath:prepend(vim.fn.stdpath("data") .. "/site")
+
     -- import nvim-treesitter plugin
-    local treesitter = require("nvim-treesitter.configs")
+    local treesitter = require("nvim-treesitter")
 
     -- configure treesitter
     treesitter.setup({ -- enable syntax highlighting
@@ -22,6 +33,7 @@ return {
       },
       -- ensure these language parsers are installed
       ensure_installed = {
+        "norg",
         "bibtex",
         "cmake",
         "csv",
@@ -31,17 +43,9 @@ return {
         "rust",
         "ruby",
         "json",
-        "javascript",
-        "typescript",
-        "tsx",
         "yaml",
-        "html",
-        "css",
-        "prisma",
         "markdown",
         "markdown_inline",
-        "svelte",
-        "graphql",
         "bash",
         "lua",
         "vim",
