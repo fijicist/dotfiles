@@ -33,6 +33,9 @@ return {
       },
       -- ensure these language parsers are installed
       ensure_installed = {
+        "bash",
+        "regex",
+        "diff",
         "norg",
         "bibtex",
         "cmake",
