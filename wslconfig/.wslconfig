@@ -1,0 +1,7 @@
+# To run CMSSW open data containers, or any CentOS6-based containers on WSL2 
+[wsl2]
+memory=13GB
+guiApplications=true
+
+[network] 
+generateResolvConf = false
