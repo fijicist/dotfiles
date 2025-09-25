@@ -190,9 +190,14 @@ alias cd="z"
 
 alias root="source ~/packages/root_install/bin/thisroot.sh && root"
 
-# ---- Alias for Python 3.10 ----
+# ---- Alias for Python 3.12(use when running conda environments) ----
 
-alias python="python3.10" # python3 will run python 3.12
+alias python="python3.12" # python3 will run python 3.12
+
+# ---- Alias for Python 3.10(use when running venv environments) ----
+
+# alias python="python3.10" # python3 will run python 3.12
+
 
 # ---- Alias for using git with dotfiles ----
 
@@ -224,3 +229,19 @@ export PATH=/usr/local/cuda-12.1/bin${PATH:+:${PATH}}
 # ---- Alias for yazi ----
 
 alias yazi="~/packages/yazi/target/release/yazi"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/anuranja/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/anuranja/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/anuranja/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/anuranja/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
