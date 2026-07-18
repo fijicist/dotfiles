@@ -72,6 +72,9 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 
+" Vim clipboard to system clipboard yank
+set clipboard=unnamed
+
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en'
 set langmenu=en

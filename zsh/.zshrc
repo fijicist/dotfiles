@@ -142,22 +142,38 @@ _fzf_compgen_dir() {
 source ~/fzf-git.sh/fzf-git.sh
 
 # --- setup fzf theme ---
-fg="#CBE0F0"
-bg="#011628"
-bg_highlight="#143652"
-purple="#B388FF"
-blue="#06BCE4"
-cyan="#2CF9ED"
 
-export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --highlight-line \
+  --info=inline-right \
+  --ansi \
+  --layout=reverse \
+  --border=none \
+  --color=bg+:#2e3c64 \
+  --color=bg:#1f2335 \
+  --color=border:#29a4bd \
+  --color=fg:#c0caf5 \
+  --color=gutter:#1f2335 \
+  --color=header:#ff9e64 \
+  --color=hl+:#2ac3de \
+  --color=hl:#2ac3de \
+  --color=info:#545c7e \
+  --color=marker:#ff007c \
+  --color=pointer:#ff007c \
+  --color=prompt:#2ac3de \
+  --color=query:#c0caf5:regular \
+  --color=scrollbar:#29a4bd \
+  --color=separator:#ff9e64 \
+  --color=spinner:#ff007c \
+"
 
 # ----- Bat (better cat) -----
 
-alias bat="batcat"  # setting up alias because bat is batcat due to duplicate names
+alias cat="bat"
 
 export BAT_THEME=tokyonight_night
 
-show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else batcat -n --color=always --line-range :500 {}; fi"
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
@@ -185,6 +201,10 @@ alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time
 eval "$(zoxide init zsh)"
 
 alias cd="z"
+
+# ---- DESY VPN alias to ssh into bastion ----
+alias desyvpn="ssh desyvpn -D 2233 -N -f"
+
 
 # ---- Alias for ROOT and running it by sourcing the script ----
 
@@ -228,7 +248,13 @@ export PATH=/usr/local/cuda-12.1/bin${PATH:+:${PATH}}
 
 # ---- Alias for yazi ----
 
-alias yazi="~/packages/yazi/target/release/yazi"
+alias ff="Yazi"
+export EDITOR=nvim  # Default editor to open with Yazi
+
+# ---- Alias for Rust ----
+
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -244,4 +270,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
